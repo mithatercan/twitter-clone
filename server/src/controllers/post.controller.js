@@ -20,15 +20,15 @@ export const newPost = async (req, res) => {
 
   const user = req.user;
 
-  const newPost = await new Post({
+  const post = await new Post({
     title: title,
     body: body,
     author: user,
   });
 
-  user.post(newPost);
+  user.post(post);
 
-  res.sendStatus(200);
+  res.send(post);
 };
 
 export const deletePost = async (req, res) => {
@@ -41,7 +41,7 @@ export const deletePost = async (req, res) => {
       // Delete from profile object;
       res.send(result);
     })
-    .catch((err) => res.send(err));
+    .catch((err) => res.status(err.code).json({ Errors: [{ msg: err }] }));
 };
 
 export const editPost = async (req, res) => {
@@ -56,7 +56,7 @@ export const editPost = async (req, res) => {
   );
 
   post.save();
-  res.send(200);
+  res.send(post);
 };
 
 export const likePost = (req, res) => {
@@ -64,7 +64,7 @@ export const likePost = (req, res) => {
   const profile = req.user;
   Post.findOneAndUpdate({ _id: id }, { $push: { likes: profile } })
     .then((result) => res.send(result))
-    .catch((err) => res.send(err));
+    .catch((err) => res.status(err.code).json({ Errors: [{ msg: err }] }));
 };
 export const unlikePost = async (req, res) => {
   const { id } = req.query;
@@ -72,7 +72,7 @@ export const unlikePost = async (req, res) => {
 
   Post.findOneAndUpdate({ _id: id }, { $pull: { likes: profile._id } })
     .then((result) => res.send(result))
-    .catch((err) => res.send(err));
+    .catch((err) => res.status(err.code).json({ Errors: [{ msg: err }] }));
 };
 export const newComment = (req, res) => {
   const { id } = req.query;
@@ -93,7 +93,7 @@ export const newComment = (req, res) => {
     }
   )
     .then((result) => res.send(result))
-    .catch((err) => res.send(err));
+    .catch((err) => res.status(err.code).json({ Errors: [{ msg: err }] }));
 };
 
 export const deleteComment = async (req, res) => {

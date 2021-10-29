@@ -13,7 +13,7 @@ export const signUp = async (req, res) => {
   if (user)
     return res
       .status(401)
-      .send({ type: "Error", msg: "This user is already exist" });
+      .json({ errors: [{ msg: "This user is already exist" }] });
 
   const profile = await new Profile({
     name: name,
@@ -29,21 +29,17 @@ export const signUp = async (req, res) => {
 
 // sign-in end point controller.
 export const signIn = async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, password } = req.body;
 
   const user = await Profile.findOne({
-    $or: [{ username: username }, { email: email }],
+    $or: [{ username: username }, { email: username }],
   });
 
   if (user && (await bcrypt.compare(password, user.password))) {
     const token = generateToken(user._id);
-    const userWithoutPassword = await Profile.findOne(
-      { email: email },
-      { password: 0 }
-    );
-    res.status(200).send({ ...userWithoutPassword._doc, token });
+    res.status(200).send({ ...user._doc, token: token });
   } else {
-    res.sendStatus(401).send({ msg: "Invalid credentials!" });
+    res.status(401).json({ errors: [{ msg: "Invalid credentials!" }] });
   }
 };
 
@@ -95,10 +91,10 @@ export const getProfile = (req, res) => {
       { password: 0 }
     )
       .then((result) => res.send(result))
-      .catch((err) => res.send(err));
+      .catch((err) => res.status(err.code).json({ errors: [{ msg: err }] }));
   } else {
     Profile.find({}, { password: 0 })
       .then((result) => res.send(result))
-      .catch((err) => res.send(err));
+      .catch((err) => res.status(err.code).json({ errors: [{ msg: err }] }));
   }
 };

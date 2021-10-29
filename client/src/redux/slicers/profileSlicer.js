@@ -2,16 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const profileSlicer = createSlice({
   name: "profile",
-  state: {
-    value: 0,
+  initialState: {
+    data: null,
+    errors: [],
   },
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    signin: (state, action) => {
+      state.data = action.payload;
+    },
+    signout: (state) => {
+      state.data = null;
+    },
+    setErrors: (state, action) => {
+      state.errors = action.payload;
     },
   },
 });
 
-export const { increment } = profileSlicer.actions;
+export const { signin, signout, setErrors } = profileSlicer.actions;
 
 export default profileSlicer.reducer;

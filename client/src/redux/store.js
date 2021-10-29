@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { profileSlicer } from "./slicers/profileSlicer";
+import profileSlicer from "./slicers/profileSlicer";
 
 export default configureStore({
   reducer: {
