@@ -1,20 +1,17 @@
-import { increment } from "./redux/slicers/profileSlicer";
-import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import Feed from "./pages/Feed";
 const App = () => {
-  const state = useSelector((state) => state.profile);
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(increment());
-  };
   return (
-    <div>
-      This is main app componenet{state.value}{" "}
-      <button
-        onClick={() => {
-          handleClick();
-        }}
-      ></button>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/signin" component={Signin} />
+        <Route exact path="/signup" component={Signup} />
+        <PrivateRoute path="/feed" component={Feed} />
+      </Switch>
+    </Router>
   );
 };
 
