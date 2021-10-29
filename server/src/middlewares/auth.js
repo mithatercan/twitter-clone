@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 import Profile from "../models/profile.js";
 
 const auth = async (req, res, next) => {
-  console.log(req.headers.token);
   if (req.headers.token) {
     try {
       let token = req.headers.token;
