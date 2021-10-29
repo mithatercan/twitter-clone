@@ -1,4 +1,5 @@
 import express from "express";
+import { body } from "express-validator";
 import {
   getProfile,
   signUp,
@@ -8,13 +9,17 @@ import {
   removeFollow,
 } from "../controllers/profile.controller.js";
 
-import auth from "../middlewares/auth.middleware.js";
+import auth from "../middlewares/auth.js";
+import {
+  validateRequest,
+  validateSchema,
+} from "../middlewares/validate-request.js";
 
 const router = express.Router();
 
 router.get("/", getProfile);
 
-router.post("/sign-up", signUp);
+router.post("/sign-up", validateSchema, validateRequest, signUp);
 router.post("/sign-in", signIn);
 
 router.post("/follow", auth, follow);

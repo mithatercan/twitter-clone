@@ -10,7 +10,7 @@ import {
   deleteComment,
   newComment,
 } from "../controllers/post.controller.js";
-import auth from "../middlewares/auth.middleware.js";
+import auth from "../middlewares/auth.js";
 
 const router = express.Router();
 
