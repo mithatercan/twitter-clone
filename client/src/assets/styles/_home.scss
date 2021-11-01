@@ -1,0 +1,40 @@
+.home {
+  margin-bottom: 3em;
+  .tweet-form {
+    display: none;
+  }
+}
+
+.tweet {
+  letter-spacing: 0.3px;
+  padding: 1em;
+  border-bottom: 1px solid $light-gray;
+  img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 1em;
+  }
+  &__profile {
+    &--name {
+      font-weight: 500;
+    }
+    &--username {
+      font-size: $font-lg;
+      color: gray;
+      margin-left: 0.4em;
+      font-size: $font-md;
+    }
+  }
+  &__body {
+    font-size: $font-md;
+    font-weight: 200;
+    margin: 0.5em 0;
+  }
+  &__icons {
+    margin: 1.2em 0.7em 0.3em 0.7em;
+    svg {
+      font-size: $icon-md;
+    }
+  }
+}

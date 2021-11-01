@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const URL = "mongodb://localhost:27017/instagram-clone";
+const URL = "mongodb://localhost:27017/twitter-clone";
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -8,6 +8,6 @@ const options = {
 const dbConnection = mongoose
   .connect(URL, options)
   .then((result) => console.log("Database connection is success."))
-  .catch((err) => console.log(err.message));
+  .catch((err) => console.log(err));
 
 export default dbConnection;

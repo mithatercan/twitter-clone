@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+button,
+textarea {
+  border: none;
+  outline: none;
+}
+
+body {
+  background: #000000;
+  font-family: "Poppins", sans-serif;
+  color: #c9c9c9;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.justify-content-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.justify-content-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.justify-content-se {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.align-items-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.align-items-fe {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.align-items-fs {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.flex-wrap-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-wrap-nowrap {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.flex-direction-c {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-direction-r {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.flex-2 {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.flex-3 {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.flex-order-1 {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.flex-order-2 {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.flex_order-3 {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+
+.flex-order-4 {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+
+.home {
+  margin-bottom: 3em;
+}
+
+.home .tweet-form {
+  display: none;
+}
+
+.tweet {
+  letter-spacing: 0.3px;
+  padding: 1em;
+  border-bottom: 1px solid rgba(220, 220, 220, 0.175);
+}
+
+.tweet img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 1em;
+}
+
+.tweet__profile--name {
+  font-weight: 500;
+}
+
+.tweet__profile--username {
+  font-size: 1em;
+  color: gray;
+  margin-left: 0.4em;
+  font-size: 0.9em;
+}
+
+.tweet__body {
+  font-size: 0.9em;
+  font-weight: 200;
+  margin: 0.5em 0;
+}
+
+.tweet__icons {
+  margin: 1.2em 0.7em 0.3em 0.7em;
+}
+
+.tweet__icons svg {
+  font-size: 1.2em;
+}
+
+.layout {
+  position: relative;
+}
+
+.header {
+  border-bottom: 1px solid rgba(220, 220, 220, 0.175);
+  width: 100%;
+  padding: 0.6em 1em;
+}
+
+.header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1em;
+}
+
+.tweet-form textarea {
+  margin: 1em 0;
+  width: 100%;
+  height: 200px;
+  font-size: 1.2em;
+  padding: 20px;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.tweet-form button {
+  padding: 0.7em 3em;
+  border-radius: 20px;
+  background-color: #1c8cd8;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 1em;
+}
+
+.tweet-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #1c8cd8;
+  color: #ffffff;
+  padding: 0.6em;
+  border-radius: 50%;
+  position: fixed;
+  right: 2.3em;
+  bottom: 5.5em;
+}
+
+.tweet-btn svg {
+  font-size: 2em;
+}
+
+.tweet-btn p {
+  display: none;
+}
+
+.sidebar-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid rgba(220, 220, 220, 0.175);
+  padding: 0.6em 2em;
+  background-color: #000000;
+}
+
+.sidebar-left__link {
+  color: #ffffff;
+}
+
+.sidebar-left__link--twitter, .sidebar-left__link--bookmark, .sidebar-left__link--notification, .sidebar-left__link--list {
+  display: none;
+}
+
+.sidebar-left__icon {
+  font-size: 1.6em;
+}
+
+.sidebar-left__text {
+  display: none;
+}
+
+.sidebar-right {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

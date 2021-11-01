@@ -4,7 +4,7 @@ import generateToken from "../utils/generateToken.js";
 
 // sign-up end point controller.
 export const signUp = async (req, res) => {
-  let { name, username, email, password } = req.body;
+  let { fname, lname, username, email, password } = req.body;
 
   const user = await Profile.findOne({
     $or: [{ email: email }, { username: username }],
@@ -15,15 +15,9 @@ export const signUp = async (req, res) => {
       .status(401)
       .json({ errors: [{ msg: "This user is already exist" }] });
 
-  const profile = await new Profile({
-    name: name,
-    username: username,
-    password: password,
-    email: email,
-  });
-
-  await profile.save();
+  const profile = await Profile.create(req.body);
   const token = generateToken(profile._id);
+  res.cookie("token", "hey", { maxAge: 86400000 });
   res.send({ ...profile._doc, token });
 };
 
@@ -37,13 +31,12 @@ export const signIn = async (req, res) => {
 
   if (user && (await bcrypt.compare(password, user.password))) {
     const token = generateToken(user._id);
+    res.cookie("token", "hey", { maxAge: 86400000 }, { httpOnly: true });
     res.status(200).send({ ...user._doc, token: token });
   } else {
     res.status(401).json({ errors: [{ msg: "Invalid credentials!" }] });
   }
 };
-
-// follow endpoint controller
 
 export const follow = async (req, res) => {
   const { id, username } = req.query;
@@ -54,10 +47,9 @@ export const follow = async (req, res) => {
   });
 
   user.follow(profile);
-  res.send(200);
+  res.status(200).send(profile);
 };
 
-//  unfollow endpoint
 export const unfollow = async (req, res) => {
   const { id, username } = req.query;
   const user = req.user;
@@ -65,17 +57,6 @@ export const unfollow = async (req, res) => {
     $or: [{ username: username }, { _id: id }],
   });
 
-  user.unfollow(profile);
-  res.send(200);
-};
-
-export const removeFollow = async (req, res) => {
-  const { id, username } = req.query;
-  const user = req.user;
-
-  const profile = await Profile.findOne({
-    $or: [{ username: username }, { _id: id }],
-  });
   user.unfollow(profile);
   res.send(200);
 };

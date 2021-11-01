@@ -3,14 +3,13 @@ import autopopulate from "mongoose-autopopulate";
 
 const { Schema, model } = mongoose;
 
-const postSchema = new Schema(
+const tweetSchema = new Schema(
   {
-    title: String,
     body: String,
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Profile",
-      autopopulate: { select: "username", maxDepth: 1 },
+      autopopulate: { select: "username fname lname", maxDepth: 1 },
     },
     likes: [
       {
@@ -22,11 +21,11 @@ const postSchema = new Schema(
     comments: [],
   },
   { timestamps: true },
-  { collection: "posts" }
+  { collection: "tweets" }
 );
 
-postSchema.plugin(autopopulate);
+tweetSchema.plugin(autopopulate);
 
-const Post = model("Post", postSchema);
+const Tweet = model("Tweet", tweetSchema);
 
-export default Post;
+export default Tweet;

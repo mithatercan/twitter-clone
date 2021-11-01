@@ -1,0 +1,28 @@
+.sidebar-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid $light-gray;
+  padding: 0.6em 2em;
+  background-color: $black;
+  &__link {
+    color: $white;
+    &--twitter,
+    &--bookmark,
+    &--notification,
+    &--list {
+      display: none;
+    }
+  }
+  &__icon {
+    font-size: $icon-lg;
+  }
+  &__text {
+    display: none;
+  }
+}
+
+.sidebar-right {
+  display: none;
+}

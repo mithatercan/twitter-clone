@@ -1,0 +1,16 @@
+.tweet-btn {
+  display: flex;
+  background-color: $light-blue;
+  color: $white;
+  padding: 0.6em;
+  border-radius: 50%;
+  position: fixed;
+  right: 2.3em;
+  bottom: 5.5em;
+  svg {
+    font-size: $icon-xl;
+  }
+  p {
+    display: none;
+  }
+}

@@ -5,21 +5,18 @@ export const FOLLOW_ID = "http://localhost:5000/profile/follow?id=";
 export const FOLLOW_NAME = "http://localhost:5000/profile/follow?username=";
 export const UNFOLLOW_ID = "http://localhost:5000/profile/unfollow?id=";
 export const UNFOLLOW_NAME = "http://localhost:5000/profile/unfollow?username=";
-export const REMOVE_ID = "http://localhost:5000/profile/remove-follow?id=";
-export const REMOVE_NAME =
-  "http://localhost:5000/profile/remove-follow?username=";
 
-export const NEW_POST = "http://localhost:5000/post/new";
-export const EDIT_POST = "http://localhost:5000/post/edit?id=";
-export const DELETE_POST = "http://localhost:5000/post/delete?id=";
-export const LIKE_POST = "http://localhost:5000/post/like?id=";
-export const UNLIKE_POST = "http://localhost:5000/post/unlike?id=";
-export const COMMENT = "http://localhost:5000/post/comment/new";
-export const COMMENT_DELETE = "http://localhost:5000/post/comment/delete?id=";
+export const NEW_TWEET = "http://localhost:5000/tweet/new";
+export const EDIT_TWEET = "http://localhost:5000/tweet/edit?id=";
+export const DELETE_TWEET = "http://localhost:5000/tweet/delete?id=";
+export const LIKE_TWEET = "http://localhost:5000/tweet/like?id=";
+export const UNLIKE_TWEET = "http://localhost:5000/tweet/unlike?id=";
+export const COMMENT = "http://localhost:5000/tweet/comment/new";
+export const COMMENT_DELETE = "http://localhost:5000/tweet/comment/delete?id=";
 
-export const GET_ALL_POSTS = "http://localhost:5000/post";
-export const GET_POST_ID = "http://localhost:5000/post?id=";
-export const GET_FOLLOWING_POSTS = "http://localhost:5000/posts/following";
+export const GET_ALL_TWEETS = "http://localhost:5000/tweet";
+export const GET_TWEET_ID = "http://localhost:5000/tweet?id=";
+export const GET_FOLLOWING_TWEETS = "http://localhost:5000/tweet/following";
 
 export const GET_ALL_PROFILES = "http://localhost:5000/profile";
 export const GET_PROFILE_USERNAME = "http:///localhost:5000/profile?username=";

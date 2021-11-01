@@ -7,10 +7,10 @@ const auth = async (req, res, next) => {
       let token = req.headers.token;
       const decoded = jwt.verify(token, process.env.SECRET);
       if (decoded) {
-        req.user = await Profile.findById(decoded.id).select("-password");
+        req.user = await Profile.findById(decoded.id);
         next();
       } else {
-        res.status(401).send({
+        return res.status(401).send({
           type: "error",
           msg: "Invalid token",
         });

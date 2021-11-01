@@ -1,20 +1,23 @@
 import mongoose from "mongoose";
+import mongooseId from "../utils/mongooseId.js";
+import getNow from "../utils/getNow.js";
 import autopopulate from "mongoose-autopopulate";
 import bcrypt from "bcrypt";
 const { Schema } = mongoose;
 
 const profileSchema = new Schema(
   {
-    name: String,
+    fname: String,
+    lname: String,
     email: String,
     username: String,
     password: String,
     bio: String,
     avatar: String,
-    posts: [
+    tweets: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Post",
+        ref: "Tweet",
         autopopulate: {
           select: "_id title body likes comments createdAt",
           maxDepth: 1,
@@ -35,6 +38,7 @@ const profileSchema = new Schema(
         autopopulate: { select: "username _id", maxDepth: 1 },
       },
     ],
+    notifications: Array,
   },
   { timestamps: true },
   { collection: "profiles" }
@@ -42,27 +46,37 @@ const profileSchema = new Schema(
 
 // For schema methods.
 class ProfileClass {
-  async post(post) {
-    this.posts.push(post);
-    await this.save();
-    await post.save();
+  tweet(tweet) {
+    this.tweets.push(tweet);
+    return this.save();
   }
-  async deletePost(id) {
-    this.posts = this.posts.filter((post) => post._id !== id);
-    await this.save();
+  like(tweet) {
+    tweet.likes.push(this);
+    return tweet.save();
   }
-  async removeFollow(profile) {
-    this.followers = this.followers.filter(
-      (follow) => follow.username !== profile.username
+  unlike(tweet) {
+    tweet.likes = tweet.likes.filter(
+      (like) => mongooseId(like._id) === mongooseId(this._id)
     );
-    profile.following = profile.following.filter(
-      (follow) => follow.username !== this.username
-    );
-    await this.save();
-    await profile.save();
+    return tweet.save();
   }
+  deleteTweet(id) {
+    this.tweets = this.tweets.filter(
+      (tweets) => mongooseId(tweets._id) !== mongooseId(id)
+    );
+    return this.save();
+  }
+  editTweet(tweet, body) {
+    tweet.body = body;
+    return tweet.save();
+  }
+
   async follow(profile) {
+    const now = getNow();
     profile.followers.push(this);
+    profile.notifications.push(
+      `${this.username} has started following you at ${now}.`
+    );
     this.following.push(profile);
 
     await this.save();
@@ -70,8 +84,13 @@ class ProfileClass {
   }
 
   async unfollow(profile) {
+    const now = getNow();
+
     profile.followers = profile.followers.filter(
       (follow) => follow.username !== this.username
+    );
+    profile.notifications.push(
+      `${this.username} has stopped following you at ${now}.`
     );
     this.following = this.following.filter(
       (follow) => follow.username !== profile.username

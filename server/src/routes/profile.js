@@ -6,7 +6,6 @@ import {
   signIn,
   follow,
   unfollow,
-  removeFollow,
 } from "../controllers/profile.controller.js";
 
 import auth from "../middlewares/auth.js";
@@ -24,6 +23,5 @@ router.post("/sign-in", signIn);
 
 router.post("/follow", auth, follow);
 router.patch("/unfollow", auth, unfollow);
-router.patch("/remove-follow", auth, removeFollow);
 
 export default router;
