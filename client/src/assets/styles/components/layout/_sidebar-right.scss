@@ -1,0 +1,41 @@
+.sidebar-right {
+  display: none;
+  input {
+    width: 90%;
+    height: 4em;
+    border-radius: 40px;
+    border: none;
+    padding: 0 1em;
+    background-color: #253341;
+    color: $white;
+    &:focus {
+      outline: 3px solid $light-blue;
+    }
+    &::placeholder {
+      color: #4f5e6c;
+      font-size: $font-xl;
+    }
+  }
+  .trends {
+    width: 90%;
+    margin: 1.3em auto;
+    background-color: #192734;
+    border-radius: 15px;
+    padding: 1em;
+    a {
+      color: $light-blue;
+    }
+  }
+  .trend {
+    margin: 1.5em 0;
+  }
+  @include breakpoint-up(medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+    border-left: 1px solid $light-gray;
+    height: 100vh;
+  }
+}

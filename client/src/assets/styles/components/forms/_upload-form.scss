@@ -1,0 +1,20 @@
+.upload-form {
+  position: relative;
+  img {
+    width: 5em;
+    height: 5em;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  div {
+    border: 3px dotted $light-gray;
+    padding: 1em 2em;
+  }
+}

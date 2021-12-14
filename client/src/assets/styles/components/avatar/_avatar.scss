@@ -1,0 +1,27 @@
+.avatar {
+  background-color: $light-blue;
+  border-radius: 50%;
+  &__small {
+    width: 3em;
+    height: 3em;
+    svg {
+      font-size: $icon-md;
+    }
+  }
+  &__large {
+    width: 8em;
+    height: 8em;
+    svg {
+      font-size: $icon-xl;
+    }
+  }
+  svg {
+    color: $white;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+}

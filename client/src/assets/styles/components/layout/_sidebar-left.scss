@@ -1,0 +1,132 @@
+.sidebar-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid $light-gray;
+  padding: 0.6em 2em;
+  background-color: $dark-blue;
+  z-index: 10;
+  &__card {
+    display: none;
+  }
+  &__link {
+    color: $white;
+    &--tweet,
+    &--twitter,
+    &--bookmark,
+    &--notification,
+    &--list {
+      display: none;
+    }
+  }
+  &__icon {
+    font-size: $icon-lg;
+  }
+  &__text {
+    display: none;
+  }
+  &__modal {
+    display: none;
+  }
+  @include breakpoint-up(medium) {
+    position: relative;
+    height: 100vh;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-right: 1px solid $light-gray;
+    flex: 1.1;
+    padding: 0.2em 4em 0 1em;
+    &__modal {
+      display: flex;
+      position: absolute;
+      z-index: 2;
+      width: 300px;
+      padding: 1em 0;
+      border-radius: 20px;
+      background-color: $dark-blue;
+      box-shadow: 0 0 10px $light-gray;
+      bottom: 4em;
+      left: 1em;
+      visibility: hidden;
+      transition: 0.1s;
+      a {
+        color: $white;
+      }
+      button {
+        text-align: left;
+        background-color: transparent;
+        color: $white;
+        font-size: $font-lg;
+        padding: 1em 1.2em;
+
+        &:hover {
+          background-color: $smooth-blue;
+        }
+      }
+      &.opened {
+        visibility: visible;
+        bottom: 6.2em;
+      }
+    }
+    &__card {
+      position: absolute;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      bottom: 1.2em;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.5em 0.7em;
+      cursor: pointer;
+      width: 90%;
+      border-radius: 40px;
+      &:hover {
+        background-color: #2c3640;
+      }
+
+      &--info {
+        margin-left: 0.9em;
+        h3 {
+          font-size: $font-lg;
+        }
+      }
+    }
+    &__link {
+      padding: 0.8em;
+      display: flex;
+      align-items: center;
+      transition: 0.1s;
+      border-radius: 30px;
+      &.active {
+        color: $light-blue;
+      }
+
+      &:hover {
+        background-color: #1c2731;
+      }
+      &--tweet {
+        background-color: $light-blue;
+        justify-content: center;
+        padding: 0.8em 0;
+        margin-top: 1em;
+        &:hover {
+          background-color: $light-blue;
+          opacity: 0.8;
+          color: $white;
+        }
+      }
+    }
+
+    &__icon {
+      font-size: $icon-xl;
+      margin: 0 0.8em 0 0;
+    }
+    &__text {
+      display: block;
+      font-size: $font-xl;
+      font-weight: 500;
+    }
+  }
+}

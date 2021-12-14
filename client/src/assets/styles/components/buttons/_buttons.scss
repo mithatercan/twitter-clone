@@ -1,0 +1,112 @@
+.tweet-btn {
+  display: flex;
+  background-color: $light-blue;
+  color: $white;
+  padding: 0.6em;
+  border-radius: 50%;
+  position: fixed;
+  right: 2.3em;
+  bottom: 5.5em;
+  svg {
+    font-size: $icon-xl;
+  }
+  p {
+    display: none;
+  }
+  @include breakpoint-up(medium) {
+    display: none;
+  }
+}
+
+.follow-btn {
+  padding: 1em 2em;
+  background: $white;
+  color: $dark-gray;
+  border-radius: 50px;
+  font-weight: 800;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.unfollow-btn {
+  position: relative;
+  padding: 1em 2em;
+  border: 1px solid $white;
+  background-color: transparent;
+  color: $white;
+  border-radius: 50px;
+  &::before {
+    content: "Unfollow";
+    display: grid;
+    place-items: center;
+    position: absolute;
+    inset: 0;
+    background-color: #ff140c2c;
+    border-radius: 50px;
+    opacity: 0;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    border-radius: 50px;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 1;
+    background-color: $dark-blue;
+  }
+
+  &:hover {
+    border: 1px solid red;
+    &::before {
+      opacity: 1;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.edit-btn {
+  position: relative;
+  padding: 0.7em 1.2em;
+  font-size: $font-md;
+  border: 1px solid $white;
+  background-color: transparent;
+  color: $white;
+  border-radius: 50px;
+}
+
+.tweet-btns {
+  cursor: pointer;
+  width: 80%;
+  margin: 1.1em 0 0 0.3em;
+
+  &__btn {
+    color: #4f5e6c;
+    font-size: $icon-md;
+    background-color: transparent;
+    svg {
+      margin-right: 0.4em;
+    }
+    &:hover {
+      color: $light-blue;
+    }
+  }
+  &__bookmark {
+    animation: removeBookmark 0.2s ease-in-out forwards alternate;
+    &--active {
+      animation: addBookmark 0.1s ease-in-out forwards alternate;
+    }
+  }
+  &__like {
+    animation: unlike 0.2s ease-in-out forwards alternate;
+    &--active {
+      svg,
+      small {
+        animation: like 0.1s ease-in-out forwards alternate;
+      }
+    }
+  }
+}

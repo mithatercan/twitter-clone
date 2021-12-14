@@ -1,0 +1,55 @@
+.profile-card {
+  padding-bottom: 1em;
+
+  &__banner {
+    width: 100%;
+    height: 13em;
+    background: #4c5d69;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__bio {
+    padding: 0 1em 1em 1em;
+    border-bottom: 1px solid $light-gray;
+    h3 {
+      margin-top: 0.6em;
+    }
+    small {
+      color: #4c5d69;
+    }
+    ul {
+      list-style: none;
+      margin-top: 0.6em;
+      margin-left: -0.2em;
+      li {
+        margin-right: 0.6em;
+        font-size: $font-md;
+        svg {
+          margin-right: 0.3em;
+        }
+      }
+    }
+    &--img {
+      margin-top: -12%;
+    }
+    &--follow {
+      p {
+        color: #4c5d69;
+        margin: 0.4em 1.3em 0 0;
+      }
+      span {
+        display: inline-block;
+        color: $white;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__tweets {
+    width: 100%;
+    padding: 1em 0;
+    border-bottom: 1px solid $light-gray;
+  }
+}

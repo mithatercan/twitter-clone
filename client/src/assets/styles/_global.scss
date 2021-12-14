@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: $light-blue;
+}
+
+img {
+  display: block;
+}
+
+button,
+textarea,
+input {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+body {
+  background: $dark-blue;
+  font-family: "Poppins", sans-serif;
+  color: $white;
+  font-size: $font-lg;
+  line-height: 1.4;
+}
+
+.display {
+  &-flex {
+    display: flex;
+  }
+  &-none {
+    display: none;
+  }
+  &-block {
+    display: block;
+  }
+}
+.justify-content {
+  &-c {
+    justify-content: center;
+  }
+  &-sb {
+    justify-content: space-between;
+  }
+  &-se {
+    justify-content: space-evenly;
+  }
+  &-fe {
+    justify-content: flex-end;
+  }
+}
+
+.align-items {
+  &-c {
+    align-items: center;
+  }
+  &-fe {
+    align-items: flex-end;
+  }
+  &-fs {
+    align-items: flex-start;
+  }
+}
+.flex-wrap {
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+.flex-direction {
+  &-c {
+    flex-direction: column;
+  }
+  &-r {
+    flex-direction: row;
+  }
+}
+
+.flex {
+  &-1 {
+    flex: 1;
+  }
+  &-2 {
+    flex: 2;
+  }
+  &-3 {
+    flex: 3;
+  }
+  &-order-1 {
+    order: 1;
+  }
+  &-order-2 {
+    order: 2;
+  }
+  &_order-3 {
+    order: 3;
+  }
+  &-order-4 {
+    order: 4;
+  }
+}

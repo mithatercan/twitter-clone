@@ -1,0 +1,15 @@
+.notification {
+  font-size: $font-lg;
+  width: 100%;
+  margin: auto;
+  padding: 1.3em 2em;
+  border-bottom: 1px solid $light-gray;
+  cursor: pointer;
+  svg {
+    font-size: $icon-lg;
+    margin-right: 0.6em;
+  }
+  &:hover {
+    background-color: $light-gray;
+  }
+}

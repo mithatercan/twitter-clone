@@ -1,0 +1,59 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes like {
+  from {
+    opacity: 0.5;
+    color: orange;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    color: $red;
+    transform: scale(1);
+  }
+}
+@keyframes unlike {
+  from {
+    transform: scale(1.1);
+    opacity: 0.5;
+    color: $red;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    color: #4f5e6c;
+  }
+}
+@keyframes addBookmark {
+  from {
+    opacity: 0.5;
+    color: $white;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    color: #1d82c8;
+    transform: scale(1);
+  }
+}
+@keyframes removeBookmark {
+  from {
+    transform: scale(1.1);
+    opacity: 0.5;
+    color: $white;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    color: #4f5e6c;
+  }
+}

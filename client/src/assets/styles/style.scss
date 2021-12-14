@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@import "variables";
+@import "global";
+@import "./animations";
+@import "./mixin/breakpoints";
+
+// style/components
+
+@import "./components/buttons/buttons";
+@import "./components/avatar/avatar";
+@import "./components/modals/modals";
+@import "./components/spinner/spinner";
+
+@import "./components/layout/layout";
+@import "./components/layout/trendings";
+@import "./components/layout/sidebar-right";
+@import "./components/layout/sidebar-left";
+
+@import "./components/cards/tweet-card";
+@import "./components/cards/profile-card";
+
+@import "./components/forms/tweet-form";
+@import "./components/forms/auth-form";
+@import "./components/forms/upload-form";
+
+// styles/views
+@import "./views/home";
+@import "./views/explore";
+@import "./views/notification";
+@import "./views/view-wrapper";
+@import "./views/tweet";

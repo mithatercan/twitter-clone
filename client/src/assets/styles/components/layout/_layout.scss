@@ -1,0 +1,27 @@
+.layout {
+  position: relative;
+  margin-bottom: 3em;
+  .header {
+    border-bottom: 1px solid $light-gray;
+    width: 100%;
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    background-color: #1c2731;
+    z-index: 3;
+    svg {
+      font-size: $icon-md;
+    }
+  }
+  @include breakpoint-up(medium) {
+    margin: 0;
+    main {
+      flex: 3;
+      overflow-y: auto;
+      height: 100vh;
+    }
+  }
+}
+
+
+

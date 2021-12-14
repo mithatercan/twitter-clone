@@ -1,0 +1,11 @@
+.home {
+  @include breakpoint-up(medium) {
+    .tweet-form {
+      width: 100%;
+      border-bottom: 1px solid $light-gray;
+      textarea {
+        height: 5em;
+      }
+    }
+  }
+}

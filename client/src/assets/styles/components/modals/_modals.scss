@@ -1,0 +1,42 @@
+
+.tweet-delete-modal {
+  position: fixed;
+  inset: 0;
+  background-color: #30404d52;
+  z-index: 3;
+  &__wrapper {
+    font-size: $font-md;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $dark-blue;
+    width: 20em;
+    padding: 2em;
+    border-radius: 1em;
+  }
+  p {
+    font-weight: 200;
+    color: $dirty-white;
+  }
+
+  &__btns {
+    margin: 0.5em 0;
+    button {
+      border-radius: 20px;
+      padding: 1em;
+      margin: 0.5em 0;
+      color: $white;
+
+      &.delete {
+        background-color: red;
+      }
+      &.cancel {
+        background-color: transparent;
+        border: 1px solid $white;
+      }
+    }
+  }
+}
+
+

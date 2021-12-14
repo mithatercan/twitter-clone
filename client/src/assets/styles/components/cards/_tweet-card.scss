@@ -1,0 +1,54 @@
+.tweet {
+  position: relative;
+  align-self: center;
+  width: 100%;
+  height: auto;
+  letter-spacing: 0.3px;
+  padding: 1em;
+  border-bottom: 1px solid $light-gray;
+  cursor: pointer;
+  opacity: 1;
+  animation: fadeIn 0.1s ease-in-out;
+  &:hover {
+    background-color: #1c2731;
+  }
+  &__retweet {
+    border: 1px solid $light-gray;
+    border-radius: 15px;
+    margin: 0.5em 0;
+  }
+  &__side {
+    &--left {
+      flex: 1;
+    }
+    &--right {
+      flex: 7;
+    }
+  }
+
+  &__profile {
+    font-size: $font-lg;
+    color: #4f5e6c;
+    font-size: $font-md;
+    &--name {
+      font-weight: 400;
+      color: $white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &--username {
+      margin: 0 0.5em;
+    }
+  }
+  &__body {
+    font-family: "Poppins";
+    font-size: $font-md;
+    font-weight: 200;
+    margin: 0.5em 0;
+    color: $white;
+  }
+  &__icons {
+    position: relative;
+  }
+}

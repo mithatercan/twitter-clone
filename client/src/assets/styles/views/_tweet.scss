@@ -1,0 +1,7 @@
+.tweet {
+  &__replies {
+    text-align: center;
+    border-bottom: 1px solid $light-gray;
+    padding: 1em 0;
+  }
+}

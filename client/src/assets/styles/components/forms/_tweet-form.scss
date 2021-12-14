@@ -1,0 +1,44 @@
+.tweet-form {
+  width: 100%;
+  border-bottom: 1px solid $light-gray;
+  &__img {
+    margin: 1.7em 1em;
+  }
+  &__form {
+    width: 100vw;
+    textarea {
+      font-family: "Poppins";
+      font-size: $font-xl;
+      margin: 1em 0;
+      width: 100%;
+      height: 200px;
+      padding: 1em 0;
+      background-color: $dark-blue;
+      color: $white;
+      resize: none;
+      ::placeholder {
+        position: absolute;
+        font-family: "Poppins";
+        font-size: $font-xl;
+        font-weight: 500;
+      }
+    }
+
+    ul {
+      list-style: none;
+      svg {
+        font-size: $icon-md;
+        color: $light-blue;
+        margin: 0 0.3em;
+      }
+    }
+    button {
+      padding: 0.7em 1.4em;
+      border-radius: 20px;
+      background-color: $light-blue;
+      color: $white;
+      cursor: pointer;
+      margin: 1em;
+    }
+  }
+}
