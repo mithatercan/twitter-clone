@@ -55,7 +55,7 @@ MONGODB_URI = ??? if you don't have mongodb installed.
 
 ### Server 🔧
 
-Go server folder and install the requirements and start the server. You can check the endpoints located on [client/src/api/urls](https://github.com/mithatercann/twitter-clone/blob/master/client/src/api/urls.js)
+Go server folder and install the requirements and start the server. You can check the endpoints located on [client/src/api/urls](https://github.com/mithatercan/twitter-clone/blob/master/client/src/api/urls.js)
 
 ```bash
 cd twitter-clone/server
